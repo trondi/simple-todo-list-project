@@ -128,10 +128,10 @@ hr {
 }
 
 .editTask {
-  position: absolute;
+  /*position: absolute;*/
   width: 75%;
   height: 100%;
-  top: 0;
+  /*top: 0;*/
   padding: 0 10px;
   font-size: 1rem;
   display: none;
@@ -139,7 +139,7 @@ hr {
 
 #newTodoField {
   width: 520px;
-  /*display: flex;*/
+  display: flex;
 }
 
 .taskBtn {
