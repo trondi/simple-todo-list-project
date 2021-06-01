@@ -122,15 +122,21 @@ hr {
 }
 
 /*Navigation*/
-ul.group {
+.group {
   width: 100%;
+  height: 60%;
+  display: flex;
+  float: left;
+  border: 1px solid rgb(202, 202, 202);
+  border-radius: 3px;
+}
+
+.group ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: rgb(255, 253, 253);
-  border: 3px;
-  border-color: rgb(241, 6, 6);
 }
 
 .group li {
@@ -149,4 +155,12 @@ ul.group {
   background-color: rgb(158, 134, 134);
   border: 3px;
   border-color: rgb(241, 6, 6);
+}
+
+.cateModi {
+  list-style-type: none;
+  position: absolute;
+  top: 100px;
+  right: 32px;
+  color: rgb(0, 0, 0);
 }
