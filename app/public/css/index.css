@@ -36,91 +36,6 @@ hr {
   width: 520px;
 }
 
-.hero-body {
-  padding-bottom: 10px;
-}
-
-#newTodoField {
-  flex-direction: row;
-  display: flex;
-}
-
-#groupName {
-  width: 23%;
-  background: rgb(255, 253, 253);
-  color: #222;
-  transition: 0.3s;
-}
-#newTodoInput {
-  width: 77%;
-}
-
-#addTodoBtn {
-  background: #ccc;
-  color: #222;
-  transition: 0.3s;
-}
-
-#addTodoBtn:hover {
-  background: #222;
-  color: #ccc;
-}
-
-.taskControl {
-  position: relative;
-}
-
-.editTask {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  padding: 0 10px;
-  font-size: 1rem;
-  display: none;
-}
-
-#newTodoField {
-  width: 520px;
-  /*display: flex;*/
-}
-
-.taskBtn {
-  justify-content: flex-start;
-}
-
-.todoItem {
-  width: 380px;
-  margin-bottom: 4px !important;
-}
-
-.toggleBtn,
-.taskBtn,
-.deleteBtn {
-  transition: 0.3s;
-}
-
-.todoItem[tododone="1"] .toggleBtn {
-  background: #ccc;
-  color: #222;
-}
-
-.todoItem .toggleBtn:hover {
-  background: #222;
-  color: #ccc;
-}
-
-.taskBtn:hover {
-  color: #999;
-  background: #eee;
-  cursor: text;
-}
-
-.deleteBtn:hover {
-  background: firebrick;
-  color: white;
-}
-
 /*Navigation*/
 .group {
   width: 100%;
@@ -158,9 +73,102 @@ hr {
 }
 
 .cateModi {
-  list-style-type: none;
   position: absolute;
   top: 100px;
   right: 32px;
   color: rgb(0, 0, 0);
+}
+
+/*New Todo Enroll*/
+.hero-body {
+  padding-bottom: 10px;
+}
+
+#newTodoField {
+  flex-direction: row;
+  display: flex;
+  border-radius: 3px;
+}
+
+#groupName {
+  width: 23%;
+}
+
+#newTodoInput {
+  width: 77%;
+}
+
+#addTodoBtn {
+  background: #ccc;
+  color: #222;
+  transition: 0.3s;
+}
+
+#addTodoBtn:hover {
+  background: #222;
+  color: #ccc;
+}
+
+/*Todo List*/
+.todoItem {
+  width: 520px;
+  flex-direction: row;
+  display: flex;
+  margin-bottom: 4px !important;
+}
+
+.taskControl {
+  position: relative;
+  flex-direction: row;
+  display: flex;
+}
+
+.editGroup {
+  width: 20%;
+}
+
+.editTask {
+  position: absolute;
+  width: 75%;
+  height: 100%;
+  top: 0;
+  padding: 0 10px;
+  font-size: 1rem;
+  display: none;
+}
+
+#newTodoField {
+  width: 520px;
+  /*display: flex;*/
+}
+
+.taskBtn {
+  justify-content: flex-start;
+}
+
+.toggleBtn,
+.taskBtn,
+.deleteBtn {
+  transition: 0.3s;
+}
+
+.todoItem[tododone="1"] .toggleBtn {
+  background: #ccc;
+  color: #222;
+}
+
+.todoItem .toggleBtn:hover {
+  background: #222;
+  color: #ccc;
+}
+
+.taskBtn:hover {
+  color: #999;
+  background: #eee;
+  cursor: text;
+}
+
+.deleteBtn:hover {
+  background: firebrick;
+  color: white;
 }

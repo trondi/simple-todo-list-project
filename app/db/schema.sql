@@ -7,8 +7,14 @@ CREATE TABLE todos
 (
     id INT NOT NULL AUTO_INCREMENT,
     groupId INT NOT NULL,
-    groupName VARCHAR(255) NOT NULL,
     task VARCHAR(255) NOT NULL,
     done BOOLEAN NOT NULL DEFAULT 0,
     PRIMARY KEY (id)
+);
+
+CREATE TABLE groups
+(
+    groupId INT NOT NULL AUTO_INCREMENT,
+    groupName VARCHAR(255) NOT NULL,
+    PRIMARY KEY (groupId)
 );

@@ -65,6 +65,7 @@ $(document).on('click', '.toggleBtn', function () {
     const parent = $(this).parent().parent();
     const toggledTodo = {
         id: $(parent).attr('todoid'),
+        groupid: $(parent).attr('groupid'), //추가
         task: $(parent).attr('todoname'),
         done: ($(parent).attr('tododone') == 1) ? 0 : 1, // Toggle 0 and 1
     }
@@ -104,6 +105,7 @@ $(document).on('blur', '.editTask', function () {
     const originalTask = $(parent).attr('todotask');
     const updatedTodo = {
         id: parseInt($(parent).attr('todoid')),
+        groupId : parseInt($(parent).attr('groupid')), //추가
         task: updatedTask,
         done: $(parent).attr('tododone')
     }
@@ -127,6 +129,7 @@ $(document).on('keyup', '.editTask', function (e) {
     const originalTask = $(parent).attr('todotask');
     const updatedTodo = {
         id: parseInt($(parent).attr('todoid')),
+        groupid: parseInt($(parent).attr('groupid')),  //추가
         task: updatedTask,
         done: $(parent).attr('tododone')
     }
