@@ -19,3 +19,15 @@ CREATE TABLE groups
     groupName VARCHAR(255) NOT NULL,
     PRIMARY KEY (groupId)
 );
+
+
+ALTER TABLE `todos_db`.`todos` 
+ADD COLUMN `groupId` INT NOT NULL AFTER `id`,
+ADD INDEX `groupId_idx` (`groupId` ASC);
+;
+ALTER TABLE `todos_db`.`todos` 
+ADD CONSTRAINT `groupId`
+  FOREIGN KEY (`groupId`)
+  REFERENCES `todos_db`.`groups` (`groupId`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
