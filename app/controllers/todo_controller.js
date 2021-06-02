@@ -2,6 +2,7 @@
 // DEPENDENCIES
 //============================
 const Todo = require('../models/todo');
+const Groups = require('../models/group');
 const express = require('express');
 const router = express.Router();
 

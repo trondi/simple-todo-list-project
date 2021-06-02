@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jason-michael/express-mysql-todo.git"
+    "url": "git+https://github.com/ericabyss/express-mysql-todo.git"
   },
   "keywords": [
     "todo",
@@ -20,9 +20,9 @@
   "author": "Jason Michael",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jason-michael/express-mysql-todo/issues"
+    "url": "https://github.com/ericabyss/express-mysql-todo/issues"
   },
-  "homepage": "https://github.com/jason-michael/express-mysql-todo#readme",
+  "homepage": "https://github.com/ericabyss/express-mysql-todo#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "bulma": "^0.7.2",

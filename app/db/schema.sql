@@ -9,7 +9,8 @@ CREATE TABLE todos
     groupId INT NOT NULL,
     task VARCHAR(255) NOT NULL,
     done BOOLEAN NOT NULL DEFAULT 0,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    foreign KEY(groupId) references groups(groupId)
 );
 
 CREATE TABLE groups
