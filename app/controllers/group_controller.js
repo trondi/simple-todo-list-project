@@ -1,8 +1,7 @@
 //============================
 // DEPENDENCIES
 //============================
-const Todo = require('../models/todo');
-const Group = require('../models/group');
+const Groups = require('../models/group');
 const express = require('express');
 const router = express.Router();
 
@@ -24,16 +23,6 @@ router.get('/', (req, res) => {
             incompleteTodos
         });
     });
-
-    Group.getAll((err, data) => {
-        if (err) throw err;
-
-        const groupNames = data.filter(group => group.groupId);
-
-        res.render('index', {
-            groupNames
-        });
-    });
 });
 
 /**
@@ -47,9 +36,7 @@ router.get('/todos', (req, res) => {
 });
 
 router.get('/groups', (req, res) => {
-
-    Group.getAll((err, data) => {
-
+    Todo.getAll((err, data) => {
         if (err) throw err;
         res.json(data);
     });
@@ -73,14 +60,16 @@ router.post('/todos', (req, res) => {
             res.json(data);
         }
     });
+});
 
+router.post('/groups', (req, res) => {
+    // If todo name is empty send an error back.
     if (req.body.task.trim() === '') {
         res.statusMessage = 'Group name is required.';
         return res.status(400).end();
     }
 
-    Group.add(req.body, (err, data) => {
-
+    Todo.add(req.body, (err, data) => {
         if (err) {
             res.sendStatus(500);
         } else {
@@ -88,7 +77,6 @@ router.post('/todos', (req, res) => {
         }
     });
 });
-
 
 /**
  * API: update todo
@@ -98,16 +86,14 @@ router.put('/todos', (req, res) => {
         if (err) throw err;
         res.json(data);
     });
-
 });
 
 router.put('/groups', (req, res) => {
-    Groups.update(req.body, (err, data) => {
+    Todo.update(req.body, (err, data) => {
         if (err) throw err;
         res.json(data);
     });
 });
-
 
 /**
  * API: delete todo
@@ -120,7 +106,7 @@ router.delete('/todos', (req, res) => {
 });
 
 router.delete('/groups', (req, res) => {
-    Group.delete(req.body.id, (err, data) => {
+    Todo.delete(req.body.id, (err, data) => {
         if (err) throw err;
         res.json(data);
     });

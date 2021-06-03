@@ -4,7 +4,7 @@ li.todoItem.field.has-addons(todoid= todo.id todotask= todo.task tododone= todo.
             i.far(class=todo.done ? 'fa-check-square' : 'fa-square')
     .control.is-expanded.taskControl
         button.taskBtn.button.is-fullwidth= todo.task
-        input.editGroup(type="text" value= todo.groupName)
+        input.editGroup(type="text" value= todo.groupId)
         input.editTask(type="text" value= todo.task)
     .control
         button.button.deleteBtn
