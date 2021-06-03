@@ -68,8 +68,13 @@ $('#addTodoBtn').on('click', () => {
         task: $('#newTodoInput').val(),
         done: 0
     }
+    const newGroup = {
+        groupname: $('#newGroupInput').val()
+    }
     addNewTodo(newTodo, location.reload());
     $('#newTodoInput').val('');
+    addNewGroup(newGroup, location.reload());
+    $('#newGroupInput').val('');
 });
 
 /**
@@ -84,6 +89,16 @@ $('#newTodoInput').on('keyup', function (e) {
     }
     addNewTodo(newTodo, location.reload());
     $('#newTodoInput').val('');
+});
+
+$('#newGroupInput').on('keyup', function (e) {
+    if (e.keyCode !== 13) return;
+
+    const newGroup = {
+        groupname: $('#newGroupInput').val(),
+        }
+    addNewGroup(newGroup, location.reload());
+    $('#newGroupInput').val('');
 });
 
 /**
