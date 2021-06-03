@@ -37,7 +37,7 @@ router.get('/todos', (req, res) => {
 });
 
 router.get('/groups', (req, res) => {
-    Todo.getAll((err, data) => {
+    Groups.getAll((err, data) => {
         if (err) throw err;
         res.json(data);
     });
@@ -70,7 +70,7 @@ router.post('/groups', (req, res) => {
         return res.status(400).end();
     }
 
-    Todo.add(req.body, (err, data) => {
+    Groups.add(req.body, (err, data) => {
         if (err) {
             res.sendStatus(500);
         } else {
@@ -90,7 +90,7 @@ router.put('/todos', (req, res) => {
 });
 
 router.put('/groups', (req, res) => {
-    Todo.update(req.body, (err, data) => {
+    Groups.update(req.body, (err, data) => {
         if (err) throw err;
         res.json(data);
     });
@@ -107,7 +107,7 @@ router.delete('/todos', (req, res) => {
 });
 
 router.delete('/groups', (req, res) => {
-    Todo.delete(req.body.id, (err, data) => {
+    Groups.delete(req.body.id, (err, data) => {
         if (err) throw err;
         res.json(data);
     });
