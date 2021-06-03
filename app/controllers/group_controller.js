@@ -1,7 +1,7 @@
 //============================
 // DEPENDENCIES
 //============================
-const Groups = require('../models/group');
+const Group = require('../models/group');
 const express = require('express');
 const router = express.Router();
 
@@ -12,31 +12,22 @@ const router = express.Router();
  * VIEW: home
  */
 router.get('/', (req, res) => {
-    Todo.getAll((err, data) => {
+    Group.getAll((err, data) => {
         if (err) throw err;
 
-        const completedTodos = data.filter(todo => todo.done);
-        const incompleteTodos = data.filter(todo => !todo.done);
+        const groupNames = data.filter(group => group.groupId);
 
         res.render('index', {
-            completedTodos,
-            incompleteTodos
+            groupNames
         });
     });
 });
 
 /**
- * API: all todos
+ * API: all groups
  */
-router.get('/todos', (req, res) => {
-    Todo.getAll((err, data) => {
-        if (err) throw err;
-        res.json(data);
-    });
-});
-
 router.get('/groups', (req, res) => {
-    Todo.getAll((err, data) => {
+    Group.getAll((err, data) => {
         if (err) throw err;
         res.json(data);
     });
@@ -44,32 +35,16 @@ router.get('/groups', (req, res) => {
 
 
 /**
- * API: add todo
+ * API: add group
  */
-router.post('/todos', (req, res) => {
-    // If todo name is empty send an error back.
-    if (req.body.task.trim() === '') {
-        res.statusMessage = 'Todo name is required.';
-        return res.status(400).end();
-    }
-
-    Todo.add(req.body, (err, data) => {
-        if (err) {
-            res.sendStatus(500);
-        } else {
-            res.json(data);
-        }
-    });
-});
-
 router.post('/groups', (req, res) => {
     // If todo name is empty send an error back.
-    if (req.body.task.trim() === '') {
+    if (req.body.task.trim() === '') { //task?
         res.statusMessage = 'Group name is required.';
         return res.status(400).end();
     }
 
-    Todo.add(req.body, (err, data) => {
+    Group.add(req.body, (err, data) => {
         if (err) {
             res.sendStatus(500);
         } else {
@@ -79,34 +54,20 @@ router.post('/groups', (req, res) => {
 });
 
 /**
- * API: update todo
+ * API: update group
  */
-router.put('/todos', (req, res) => {
-    Todo.update(req.body, (err, data) => {
-        if (err) throw err;
-        res.json(data);
-    });
-});
-
 router.put('/groups', (req, res) => {
-    Todo.update(req.body, (err, data) => {
+    Group.update(req.body, (err, data) => {
         if (err) throw err;
         res.json(data);
     });
 });
 
 /**
- * API: delete todo
+ * API: delete group
  */
-router.delete('/todos', (req, res) => {
-    Todo.delete(req.body.id, (err, data) => {
-        if (err) throw err;
-        res.json(data);
-    });
-});
-
 router.delete('/groups', (req, res) => {
-    Todo.delete(req.body.id, (err, data) => {
+    Group.delete(req.body.id, (err, data) => {
         if (err) throw err;
         res.json(data);
     });
