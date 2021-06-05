@@ -49,7 +49,6 @@ router.get('/todos', (req, res) => {
 router.get('/groups', (req, res) => {
 
     Group.getAll((err, data) => {
-
         if (err) throw err;
         res.json(data);
     });
@@ -73,14 +72,15 @@ router.post('/todos', (req, res) => {
             res.json(data);
         }
     });
-
-    if (req.body.task.trim() === '') {
+});
+router.post('/groups', (req, res) => {
+    // If todo name is empty send an error back.
+    if (req.body.groupname.trim() === '') {
         res.statusMessage = 'Group name is required.';
         return res.status(400).end();
     }
 
     Group.add(req.body, (err, data) => {
-
         if (err) {
             res.sendStatus(500);
         } else {

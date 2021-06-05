@@ -4,14 +4,17 @@ header
             .container
                 h1.title 📑 Todo List 
                 br
-                div.group
-                    ul.groupList
-                    include group.pug
+                div
+                    ul#groups.groupList
+                        each group in groupNames
+                            include group.pug
+                        else
+                            p Nothing to do yet.
                         //- a.active(href='#crew1') crew1
                         //-else
                             //li
                                 a(href='#crew4') crew4
                     div.cateModi
-                        a(href='#tweak') 수정
+                        a(href='#tweak') 그룹리스트
                 br
                 include addTodo.pug

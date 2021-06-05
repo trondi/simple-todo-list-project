@@ -37,7 +37,7 @@ hr {
 }
 
 /*Navigation*/
-.group {
+.groups {
   width: 100%;
   height: 60%;
   display: flex;
@@ -46,7 +46,7 @@ hr {
   border-radius: 3px;
 }
 
-.group ul {
+.groups ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -54,11 +54,11 @@ hr {
   background-color: rgb(255, 253, 253);
 }
 
-.group li {
+.groups li {
   float: left;
 }
 
-.group li a {
+.groups li a {
   display: block;
   color: rgb(0, 0, 0);
   text-align: center;
@@ -66,7 +66,7 @@ hr {
   text-decoration: none;
 }
 
-.group li a:hover {
+.groups li a:hover {
   background-color: rgb(158, 134, 134);
   border: 3px;
   border-color: rgb(241, 6, 6);
@@ -90,7 +90,7 @@ hr {
   border-radius: 3px;
 }
 
-#groupName {
+#newGroupInput {
   width: 23%;
 }
 
