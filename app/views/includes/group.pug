@@ -1,9 +1,2 @@
-//-script.
-    console.log(groups.groupname)
-//-each group in groupNames
-    li.a(href='#crew4' group=group.groupname) crew4
-//-else
-    p Nothing
-    
-    
-h.editGroup(type="text" value= todo.groupId)
+li.groupItem.field.has-addons(groupid= group.groupId)
+    .editGroup(type="text" value= group.groupId)
