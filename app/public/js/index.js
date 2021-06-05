@@ -87,19 +87,16 @@ $('#newTodoInput').on('keyup', function (e) {
         task: $('#newTodoInput').val(),
         done: 0
     }
-    addNewTodo(newTodo, location.reload());
-    $('#newTodoInput').val('');
-});
-
-$('#newGroupInput').on('keyup', function (e) {
-    if (e.keyCode !== 13) return;
-
     const newGroup = {
         groupname: $('#newGroupInput').val(),
         }
+
+    addNewTodo(newTodo, location.reload());
+    $('#newTodoInput').val('');
     addNewGroup(newGroup, location.reload());
     $('#newGroupInput').val('');
 });
+
 
 /**
  * Toggle todo
@@ -197,7 +194,7 @@ $(document).on('keyup', '.editTask', function (e) {
 
 /**
  * Add todo (on enter)
- */
+
 $('#newGroupInput').on('keyup', function (e) {
     if (e.keyCode !== 13) return;
 
