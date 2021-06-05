@@ -18,10 +18,12 @@ router.get('/', (req, res) => {
 
         const completedTodos = data.filter(todo => todo.done);
         const incompleteTodos = data.filter(todo => !todo.done);
+        const groupNames = data.filter(group => group.groupId);
 
         res.render('index', {
             completedTodos,
-            incompleteTodos
+            incompleteTodos,
+            groupNames
         });
     });
 
