@@ -66,12 +66,12 @@ function updateGroup(group, callback) {
 $('#addTodoBtn').on('click', () => {
     const newTodo = {
         task: $('#newTodoInput').val(),
-        groupname: $('#newGroupInput').val(),
         done: 0
     }
     const newGroup = {
         groupname: $('#newGroupInput').val()
     }
+
     addNewTodo(newTodo, location.reload());
     $('#newTodoInput').val('');
     addNewGroup(newGroup, location.reload());
@@ -84,9 +84,9 @@ $('#addTodoBtn').on('click', () => {
 $('#newTodoInput').on('keyup', function (e) {
     if (e.keyCode !== 13) return;
 
-    const newTodo = {
+    const newTodo = {//칼럼 추가
+        groupId: $('#newGroupInput')..val('');,
         task: $('#newTodoInput').val(),
-        groupname: $('#newGroupInput').val(),
         done: 0
     }
     const newGroup = {
@@ -196,7 +196,7 @@ $(document).on('keyup', '.editTask', function (e) {
 
 /**
  * Add todo (on enter)
-
+*/
 $('#newGroupInput').on('keyup', function (e) {
     if (e.keyCode !== 13) return;
 

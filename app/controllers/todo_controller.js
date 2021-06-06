@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
         if (err) throw err;
         const completedTodos = data.filter(todo => todo.done);
         const incompleteTodos = data.filter(todo => !todo.done);
-        const groupNames = data.filter(group => group.groupId);
+        const groupNames = data.filter(todo => todo.groupId);
         
         res.render('index', {
             completedTodos,
@@ -29,6 +29,7 @@ router.get('/', (req, res) => {
     Group.getAll((err, data) => {
         if (err) throw err;
         const groupNames = data.filter(group => group.groupId);
+
         res.render('index', {
             groupNames
         });
@@ -44,6 +45,7 @@ router.get('/todos', (req, res) => {
         if (err) throw err;
         res.json(data);
     });
+
 });
 
 router.get('/groups', (req, res) => {
@@ -64,19 +66,19 @@ router.post('/todos', (req, res) => {
         res.statusMessage = 'Todo name is required.';
         return res.status(400).end();
     }
-    //console.log(req.body)// task,done
+
     Todo.add(req.body, (err, data) => {
-        if (err) {
+        if (err) {                      //------!!  에러 일어나는중
             res.sendStatus(500);
+            console.log(err)
         } else {
-            res.json(data);
+            res.json(data);  
         }
     });
-    console.log(req.body)
+   // console.log(req.body)//task group done
 });
 
-
-router.post('/groups', (req, res) => {
+router.post('/groups', (req, res) => { // 그룹 추가
     // If group name is empty send an error back.
     if (req.body.groupname.trim() === '') {
         res.statusMessage = 'Group name is required.';
@@ -89,6 +91,7 @@ router.post('/groups', (req, res) => {
             res.json(data);
         }
     });
+    //console.log(req.body)//g 
 });
 
 
@@ -100,7 +103,7 @@ router.put('/todos', (req, res) => {
         if (err) throw err;
         res.json(data);
     });
-
+    console.log(req.body)
 });
 
 router.put('/groups', (req, res) => {

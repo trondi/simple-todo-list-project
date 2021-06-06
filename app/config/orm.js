@@ -11,6 +11,11 @@ module.exports = {
         conn.query(query, [tbl, where, value], callback);
     },
 
+    selectAllOne: (tbl, col, where, value, callback) => {
+        const query = 'SELECT ?? FROM ?? WHERE ?? = ?';
+        conn.query(query, [col, tbl, where, value], callback);
+    },
+
     insertOne: (tbl, obj, callback) => {
         const query = 'INSERT INTO ?? SET ?';
         conn.query(query, [tbl, obj], callback);
