@@ -66,6 +66,7 @@ function updateGroup(group, callback) {
 $('#addTodoBtn').on('click', () => {
     const newTodo = {
         task: $('#newTodoInput').val(),
+        groupname: $('#newGroupInput').val(),
         done: 0
     }
     const newGroup = {
@@ -85,6 +86,7 @@ $('#newTodoInput').on('keyup', function (e) {
 
     const newTodo = {
         task: $('#newTodoInput').val(),
+        groupname: $('#newGroupInput').val(),
         done: 0
     }
     const newGroup = {

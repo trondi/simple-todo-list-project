@@ -15,23 +15,20 @@ const router = express.Router();
 router.get('/', (req, res) => {
     Todo.getAll((err, data) => {
         if (err) throw err;
-
         const completedTodos = data.filter(todo => todo.done);
         const incompleteTodos = data.filter(todo => !todo.done);
         const groupNames = data.filter(group => group.groupId);
-
+        
         res.render('index', {
             completedTodos,
             incompleteTodos,
             groupNames
-        });
+        });      
     });
-
+    
     Group.getAll((err, data) => {
         if (err) throw err;
-
         const groupNames = data.filter(group => group.groupId);
-
         res.render('index', {
             groupNames
         });
@@ -42,6 +39,7 @@ router.get('/', (req, res) => {
  * API: all todos
  */
 router.get('/todos', (req, res) => {
+    
     Todo.getAll((err, data) => {
         if (err) throw err;
         res.json(data);
@@ -49,7 +47,7 @@ router.get('/todos', (req, res) => {
 });
 
 router.get('/groups', (req, res) => {
-
+    
     Group.getAll((err, data) => {
         if (err) throw err;
         res.json(data);
@@ -66,7 +64,7 @@ router.post('/todos', (req, res) => {
         res.statusMessage = 'Todo name is required.';
         return res.status(400).end();
     }
-
+    //console.log(req.body)// task,done
     Todo.add(req.body, (err, data) => {
         if (err) {
             res.sendStatus(500);
@@ -74,14 +72,16 @@ router.post('/todos', (req, res) => {
             res.json(data);
         }
     });
+    console.log(req.body)
 });
+
+
 router.post('/groups', (req, res) => {
-    // If todo name is empty send an error back.
+    // If group name is empty send an error back.
     if (req.body.groupname.trim() === '') {
         res.statusMessage = 'Group name is required.';
         return res.status(400).end();
     }
-
     Group.add(req.body, (err, data) => {
         if (err) {
             res.sendStatus(500);
