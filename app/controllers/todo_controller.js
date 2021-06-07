@@ -75,7 +75,8 @@ router.post('/todos', (req, res) => {
             res.json(data);  
         }
     });
-   // console.log(req.body)//task group done
+    //Todo.seletLastG();
+   console.log(req.body)//task group done
 });
 
 router.post('/groups', (req, res) => { // 그룹 추가

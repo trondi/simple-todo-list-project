@@ -11,11 +11,9 @@ CREATE TABLE todos(
     foreign KEY(groupId) references groups(groupId)
 );
 
-CREATE TABLE groups
-(
-    groupId INT NOT NULL AUTO_INCREMENT,
-    groupName VARCHAR(255) NOT NULL,
-    PRIMARY KEY (groupId)
+CREATE TABLE groups(
+    groupId INT NOT NULL primary key AUTO_INCREMENT,
+    groupName VARCHAR(255) NOT NULL
 );
 
 
@@ -42,3 +40,22 @@ CREATE TABLE `todos_db`.`todos` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_bin;
+
+
+
+
+
+
+
+CREATE TABLE todos(
+    id INT NOT NULL primary key AUTO_INCREMENT,
+    groupId INT NOT NULL,
+    task VARCHAR(255) NOT NULL,
+    done BOOLEAN NOT NULL DEFAULT 0,
+    foreign KEY(groupId) references `groups`(groupId)
+);
+
+CREATE TABLE `groups`(
+    groupId INT NOT NULL primary key AUTO_INCREMENT,
+    groupName VARCHAR(255) NOT NULL
+);

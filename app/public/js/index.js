@@ -64,7 +64,9 @@ function updateGroup(group, callback) {
  * Add todo (on click)
  */
 $('#addTodoBtn').on('click', () => {
+    //const parent = $(this).parent();
     const newTodo = {
+        groupId: td.eq(1),
         task: $('#newTodoInput').val(),
         done: 0
     }
@@ -83,15 +85,16 @@ $('#addTodoBtn').on('click', () => {
  */
 $('#newTodoInput').on('keyup', function (e) {
     if (e.keyCode !== 13) return;
-
-    const newTodo = {//칼럼 추가
-        groupId: $('#newGroupInput')..val('');,
-        task: $('#newTodoInput').val(),
-        done: 0
-    }
+    //const parent = $(this).parent();
     const newGroup = {
         groupname: $('#newGroupInput').val(),
         }
+
+    const newTodo = {                           //칼럼 추가됨
+        groupId: td.eq(1),
+        task: $('#newTodoInput').val(),
+        done: 0
+    }
 
     addNewTodo(newTodo, location.reload());
     $('#newTodoInput').val('');
@@ -107,7 +110,7 @@ $(document).on('click', '.toggleBtn', function () {
     const parent = $(this).parent().parent();
     const toggledTodo = {
         id: $(parent).attr('todoid'),
-        groupid: $(parent).attr('groupid'), //추가
+        groupId: $(parent).attr('groupid'),
         task: $(parent).attr('todoname'),
         done: ($(parent).attr('tododone') == 1) ? 0 : 1, // Toggle 0 and 1
     }
@@ -188,23 +191,23 @@ $(document).on('keyup', '.editTask', function (e) {
  */
  $('#addGroupBtn').on('click', () => {
     const newGroup = { //?????
-        name: $('#newGroupInput').val()
+        groupName: $('#newGroupInput').val()
     }
     addNewGroup(newGroup, location.reload());
     $('#newGroupInput').val('');
 });
 
 /**
- * Add todo (on enter)
+ * Add group (on enter)
 */
 $('#newGroupInput').on('keyup', function (e) {
     if (e.keyCode !== 13) return;
 
     const newGroup = { //????
-        name: $('#newGroupInput').val()
+        groupName: $('#newGroupInput').val()
     }
-    addNewGroup(newGroup, location.reload());
-    $('#newGroupInput').val('');
+    addNewGroup(newGroup, location.reload());//추가
+    $('#newGroupInput').val('');//비우기
 });
 
 /**
@@ -214,7 +217,7 @@ $(document).on('click', '.toggleBtn', function () {
     const parent = $(this).parent().parent();
     const toggledGroup = {
         groupid: $(parent).attr('groupid'), //추가
-        name: $(parent).attr('groupname')
+        groupName: $(parent).attr('groupname')
     }
     updateGroup(toggledGroup, location.reload());
 });
@@ -252,7 +255,7 @@ $(document).on('blur', '.editName', function () {
     const originalName = $(parent).attr('groupname');
     const updatedGroup = {
         groupId : parseInt($(parent).attr('groupid')), //추가
-        name: updatedName
+        groupName: updatedName
     }
 
     if (updatedName === originalName || updatedName.trim() === '') return;
@@ -274,7 +277,7 @@ $(document).on('keyup', '.editName', function (e) {
     const originalName = $(parent).attr('groupname');
     const updatedGroup = {
         groupid: parseInt($(parent).attr('groupid')),  //추가
-        name: updatedName
+        groupName: updatedName
     }
 
     if (updatedName === originalName || updatedName.trim() === '') return;

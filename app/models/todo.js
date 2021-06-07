@@ -7,4 +7,5 @@ module.exports = {
     getAllComplete: (callback) => orm.selectAllWhere('todos', 'done', 1, callback),
     getAllIncomplete: (callback) => orm.selectAllWhere('todos', 'done', 0, callback),
     update: (todo, callback) => orm.updateOne('todos', todo, callback),
+    seletLastG:  (todo, callback) => orm.selectId(callback),
 }
