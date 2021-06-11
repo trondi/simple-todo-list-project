@@ -91,7 +91,6 @@ router.post('/groups', (req, res) => { // 그룹 추가
             res.json(data);
         }
     });
-    //console.log(req.body)//g 
 });
 
 
