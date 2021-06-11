@@ -64,7 +64,6 @@ function updateGroup(group, callback) {
  * Add todo (on click)
  */
 $('#addTodoBtn').on('click', () => {
-    //const parent = $(this).parent();
     const newTodo = {
         groupId: td.eq(1),
         task: $('#newTodoInput').val(),
@@ -85,7 +84,6 @@ $('#addTodoBtn').on('click', () => {
  */
 $('#newTodoInput').on('keyup', function (e) {
     if (e.keyCode !== 13) return;
-    //const parent = $(this).parent();
     const newGroup = {
         groupname: $('#newGroupInput').val(),
         }
@@ -150,7 +148,7 @@ $(document).on('blur', '.editTask', function () {
     const originalTask = $(parent).attr('todotask');
     const updatedTodo = {
         id: parseInt($(parent).attr('todoid')),
-        groupId : parseInt($(parent).attr('groupid')), //추가
+        groupId : parseInt($(parent).attr('groupid')),
         task: updatedTask,
         done: $(parent).attr('tododone')
     }
@@ -174,7 +172,7 @@ $(document).on('keyup', '.editTask', function (e) {
     const originalTask = $(parent).attr('todotask');
     const updatedTodo = {
         id: parseInt($(parent).attr('todoid')),
-        groupid: parseInt($(parent).attr('groupid')),  //추가
+        groupid: parseInt($(parent).attr('groupid')),
         task: updatedTask,
         done: $(parent).attr('tododone')
     }
@@ -254,7 +252,7 @@ $(document).on('blur', '.editName', function () {
     const updatedName = $(this).val().trim();
     const originalName = $(parent).attr('groupname');
     const updatedGroup = {
-        groupId : parseInt($(parent).attr('groupid')), //추가
+        groupId : parseInt($(parent).attr('groupid')),
         groupName: updatedName
     }
 
@@ -276,7 +274,7 @@ $(document).on('keyup', '.editName', function (e) {
     const updatedName = $(this).val().trim();
     const originalName = $(parent).attr('groupname');
     const updatedGroup = {
-        groupid: parseInt($(parent).attr('groupid')),  //추가
+        groupid: parseInt($(parent).attr('groupid')),
         groupName: updatedName
     }
 
