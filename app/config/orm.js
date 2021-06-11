@@ -29,5 +29,11 @@ module.exports = {
     deleteOne: (tbl, id, callback) => {
         const query = 'DELETE FROM ?? WHERE id = ?';
         conn.query(query, [tbl, id], callback);
+    },
+
+    selectId: (callback) => { 
+        const query = 'SELECT LAST_INSERT_ID() from groups;';
+        conn.query(query, callback);
     }
+    
 }
