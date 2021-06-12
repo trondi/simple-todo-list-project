@@ -10,7 +10,7 @@ const router = express.Router();
 // ROUTES
 //============================
 /**
- * VIEW: home
+ * VIEW: home_modi
  */
 router.get('/', (req, res) => {
     Todo.getAll((err, data) => {
@@ -75,11 +75,11 @@ router.post('/todos', (req, res) => {
             res.json(data);  
         }
     });
-    //Todo.seletLastG();
+    Todo.seletLastG();
    console.log(req.body)//task group done
 });
 
-router.post('/groups', (req, res) => { // 그룹 추가
+router.post('/groups', (req, res) => { // 그룹 추가_____
     // If group name is empty send an error back.
     if (req.body.groupname.trim() === '') {
         res.statusMessage = 'Group name is required.';
